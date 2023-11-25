@@ -1,0 +1,1 @@
+# SberMenu_Django
