@@ -36,22 +36,12 @@ jobs:
         pip install -r requirements/prod.txt
         pip install -r requirements/dev.txt
         pip install -r requirements/test.txt
-  lint:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: flake8
+    - name: ling
       run: |
         flake8 --verbose
-    - name: black
-      run: |
         black --check --config pyproject.toml .
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: django-test
+    - name: test
       run: |
-        cd lyceum
+        cd SberMenu
         python manage.py migrate
         python manage.py test
