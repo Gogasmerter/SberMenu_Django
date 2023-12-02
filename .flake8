@@ -2,7 +2,7 @@
 exclude = .git,__pycache__,venv,migrations
 max-complexity = 10
 import-order-style = google
-application-import-names = SberMenu, users
+application-import-names = SberMenu, users, core
 max-line-length = 120
 inline-quotes = "
 black-config = pyproject.toml
