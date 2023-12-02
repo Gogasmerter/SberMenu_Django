@@ -1,8 +1,8 @@
 [flake8]
-exclude = .git,__pycache__,venv
+exclude = .git,__pycache__,venv,migrations
 max-complexity = 10
 import-order-style = google
-; application-import-names = data, forms
+application-import-names = SberMenu, users
 max-line-length = 120
 inline-quotes = "
 black-config = pyproject.toml
