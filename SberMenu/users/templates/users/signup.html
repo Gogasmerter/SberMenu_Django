@@ -1,0 +1,70 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/login_registration.css' %}" />
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="body PC">
+    <div class="bgimg"></div>
+    <div class="container">
+      <div class="white_container Active">
+        <div class="registration_container">
+          <div class="text_back">
+            <div class="text">Регистрация</div>
+            <div class="back"></div>
+          </div>
+          <div class="ep">
+            <!-- Name -->
+            {{ form.non_field_errors }}
+            {{ form.first_name }}
+            {% for error in form.first_name.errors %}
+              <div class="alert alert-danger">{{ error|escape }}</div>
+            {% endfor %}
+            <!-- SurName -->
+            {{ form.last_name }}
+            {% for error in form.last_name.errors %}
+              <div class="alert alert-danger">{{ error|escape }}</div>
+            {% endfor %}
+            <!-- Email -->
+            {{ form.email }}
+            {% for error in form.email.errors %}
+              <div class="alert alert-danger">{{ error|escape }}</div>
+            {% endfor %}
+            <!-- Password -->
+            {{ form.password1 }}
+            {% for error in form.password1.errors %}
+              <p class="alert alert-danger" role="alert">{{ error }}</p>
+            {% endfor %}
+            <!-- Password repeat -->
+            {{ form.password2 }}
+            {% for error in form.password2.errors %}
+              <p class="alert alert-danger" role="alert">{{ error }}</p>
+            {% endfor %}
+
+            <!-- Submit -->
+            <div class="lg">
+              <button type="submit" class="register">Создать</button>
+              <a class="Login" href="{% url 'users:login' %}">Войти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<style>
+  @media screen and (max-height: 740px) {
+    .registration_container {
+      gap: 1rem !important;
+      padding: 20px 0;
+    }
+
+    .Active {
+      min-height: 0;
+    }
+
+    .white_container {
+      height: auto;
+    }
+  }
+</style>
